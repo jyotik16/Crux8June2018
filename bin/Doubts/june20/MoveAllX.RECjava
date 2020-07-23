@@ -1,0 +1,41 @@
+package Doubts.june20;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MoveAllX {
+	static Scanner scn = new Scanner(System.in);
+	public static void main(String[] args) {
+	
+		String str = scn.nextLine();
+		  ArrayList<Character> track = new ArrayList<Character>();
+		 end(str,"",0,track);
+		}
+
+		public static int end(String str,String res, int index,ArrayList<Character> track)
+		{
+		  if(index==str.length() && track.size()==0)
+		  {
+			  System.out.println(res);
+		    return 0;
+		  }
+		  else if(index==str.length() && track.size()!=0)
+		  {
+
+		    return end(str,res+String.valueOf(track.remove(0)),index,track);
+		  }
+		  else if(str.charAt(index)=='x')
+		  {
+		    track.add(str.charAt(index));
+		    return end(str,res,index+1,track); 
+		  }
+		  else
+		  {
+		    return end(str,res+str.charAt(index),index+1,track);
+		  }
+
+		}
+	
+}
+
+
